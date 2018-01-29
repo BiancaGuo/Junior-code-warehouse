@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Signature-Version: 3.141592
+Ant-Version: Apache Ant 1.8.3
+Created-By: 1.7.0_05-b06 (Oracle Corporation)
+Main-Class: decaf.Driver
+

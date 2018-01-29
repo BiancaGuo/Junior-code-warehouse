@@ -1,0 +1,41 @@
+program
+    class Computer <empty>
+        vardef cpu inttype
+        func Crash voidtype
+            formals
+                vardef numTimes inttype
+            stmtblock
+                vardef i inttype
+                for
+                    assign
+                        varref i
+                        intconst 0
+                    les
+                        varref i
+                        varref numTimes
+                    assign
+                        varref i
+                        add
+                            varref i
+                            intconst 1
+                    print
+                        stringconst "sad\n"
+    class Mac Computer
+        vardef mouse inttype
+        func Crash voidtype
+            formals
+                vardef numTimes inttype
+            stmtblock
+                print
+                    stringconst "ack!"
+    class main <empty>
+        static func main voidtype
+            formals
+            stmtblock
+                vardef powerbook classtype Mac
+                assign
+                    varref powerbook
+                    newobj Mac
+                call Crash
+                    varref powerbook
+                    intconst 2

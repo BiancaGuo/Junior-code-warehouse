@@ -1,0 +1,83 @@
+FUNCTION _Cow_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T4 _T5 _T6 _T7 ]
+  liveUse = [ _T5 ]
+  liveIn  = [ _T5 ]
+  liveOut = [ _T5 ]
+    _T4 = 12 [ _T4 _T6 ]
+    parm _T4 [ _T6 ]
+    _T5 =  call _Alloc [ _T5 _T6 ]
+    _T6 = 0 [ _T5 _T6 ]
+    *(_T5 + 4) = _T6 [ _T5 _T6 ]
+    *(_T5 + 8) = _T6 [ _T5 ]
+    _T7 = VTBL <_Cow> [ _T5 _T7 ]
+    *(_T5 + 0) = _T7 [ _T5 ]
+END BY RETURN, result = _T5
+
+FUNCTION _Main_New : 
+BASIC BLOCK 0 : 
+  Def     = [ _T8 _T9 _T10 ]
+  liveUse = [ _T9 ]
+  liveIn  = [ _T9 ]
+  liveOut = [ _T9 ]
+    _T8 = 4 [ _T8 ]
+    parm _T8 [ ]
+    _T9 =  call _Alloc [ _T9 ]
+    _T10 = VTBL <_Main> [ _T9 _T10 ]
+    *(_T9 + 0) = _T10 [ _T9 ]
+END BY RETURN, result = _T9
+
+FUNCTION _Cow.Init : 
+BASIC BLOCK 0 : 
+  Def     = [ _T11 _T12 ]
+  liveUse = [ _T0 _T1 _T2 ]
+  liveIn  = [ _T0 _T1 _T2 ]
+  liveOut = [ _T0 _T1 _T2 ]
+    _T11 = *(_T0 + 8) [ _T0 _T1 _T2 ]
+    *(_T0 + 8) = _T1 [ _T0 _T1 _T2 ]
+    _T12 = *(_T0 + 4) [ _T0 _T1 _T2 ]
+    *(_T0 + 4) = _T2 [ _T0 _T1 _T2 ]
+END BY RETURN, void result
+
+FUNCTION _Cow.Moo : 
+BASIC BLOCK 0 : 
+  Def     = [ _T13 _T14 _T15 _T16 ]
+  liveUse = [ 4 _T3 ]
+  liveIn  = [ 4 _T3 ]
+  liveOut = [ 4 _T3 ]
+    _T13 = *(_T3 + 4) [ 4 _T3 _T13 ]
+    parm _T13 [ 4 _T3 ]
+    call _PrintInt [ 4 _T3 ]
+    _T14 = " " [ 4 _T3 _T14 ]
+    parm _T14 [ 4 _T3 ]
+    call _PrintString [ 4 _T3 ]
+    _T15 = *(_T3 + 8) [ 4 _T3 _T15 ]
+    parm _T15 [ 4 _T3 ]
+    call _PrintInt [ 4 _T3 ]
+    _T16 = "\n" [ 4 _T3 _T16 ]
+    parm _T16 [ 4 _T3 ]
+    call _PrintString [ 4 _T3 ]
+END BY RETURN, void result
+
+FUNCTION main : 
+BASIC BLOCK 0 : 
+  Def     = [ _T17 _T18 _T19 _T20 _T21 _T22 _T23 _T24 ]
+  liveUse = [ 0 ]
+  liveIn  = [ 0 ]
+  liveOut = [ 0 ]
+    _T18 =  call _Cow_New [ 0 _T18 _T19 _T20 ]
+    _T17 = _T18 [ 0 _T17 _T19 _T20 ]
+    _T19 = 100 [ 0 _T17 _T19 _T20 ]
+    _T20 = 122 [ 0 _T17 _T19 _T20 ]
+    parm _T17 [ 0 _T17 _T19 _T20 ]
+    parm _T19 [ 0 _T17 _T20 ]
+    parm _T20 [ 0 _T17 ]
+    _T21 = *(_T17 + 0) [ 0 _T17 _T21 ]
+    _T22 = *(_T21 + 8) [ 0 _T17 _T22 ]
+    call _T22 [ 0 _T17 ]
+    parm _T17 [ 0 _T17 ]
+    _T23 = *(_T17 + 0) [ 0 _T23 ]
+    _T24 = *(_T23 + 12) [ 0 _T24 ]
+    call _T24 [ 0 ]
+END BY RETURN, void result
+

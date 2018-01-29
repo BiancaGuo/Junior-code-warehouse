@@ -1,0 +1,6 @@
+1、本次实验在前三次试验完成后完成后完成decaf编译器的数据流分析功能，但我们只进行活跃变量分析。
+2、实验中我们只需要补充BasicBlock.java，FlowGraph.java两个文件，分别为基本快定义和控制流图定义。
+3、实验中按顺序补充补充BasicBlock下的computeDefAndLiveUse，将所需操作数加入DEF或LiveUse集合。
+	FlowGraph下的 analyzeLiveness函数，根据之前得到的LiveUse和DEF以及LiveOut集合来计算LiveIn集合。
+	BasicBlock下的 analyzeLiveness函数，此函数是根据每条语句分析计算出LiveOut集合。
+4、最后一部分的实验工程量不是很大，但要弄清楚每个集合的含义以及每种操作该怎样处理，收获也是很大的。

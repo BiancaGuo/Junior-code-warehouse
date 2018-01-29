@@ -1,0 +1,36 @@
+YACC中使用的上下文无关文法：
+
+Program		    :	ClassList
+ClassList       :	ClassList ClassDef  |	ClassDef
+VariableDef     :	Variable ';’
+Variable        :	Type IDENTIFIER				
+Type            :	INT	|	VOID|	BOOL|	STRING|	CLASS IDENTIFIER|	Type '[' ']'
+ClassDef        :	CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
+ExtendsClause	:	EXTENDS IDENTIFIER  |	/* empty */
+FieldList       :	FieldList VariableDef  |	FieldList FunctionDef  |	/* empty */
+Formals         :	VariableList   |	/* empty */
+VariableList    :	VariableList ',' Variable   |	Variable
+FunctionDef     :	STATIC Type IDENTIFIER '(' Formals ')' StmtBlock  |	Type IDENTIFIER '(' Formals ')' StmtBlock
+StmtBlock       :	'{' StmtList '}'		
+StmtList        :	StmtList Stmt	|	/* empty */
+Stmt		    :	VariableDef |	SimpleStmt ';' |	IfStmt  |	WhileStmt  |	ForStmt|	ReturnStmt ';' |	PrintStmt ';'|	BreakStmt ';'|	StmtBlock
+SimpleStmt      :	LValue '=' Expr |	Call |	/* empty */
+LValue          :	Expr '.' IDENTIFIER|   IDENTIFIER |	Expr '[' Expr ']'
+Call            :	Expr '.' IDENTIFIER '(' Actuals ')'|   IDENTIFIER '(' Actuals ')'
+Expr            :   LValue |	Call  |	Expr '+' Expr |	Expr '-' Expr |	Expr '*' Expr |	Expr '/' Expr|	Expr '%' Expr |	Expr EQUAL Expr|	Expr NOT_EQUAL Expr |	Expr AND Expr|	Expr OR Expr|	Expr '<' Expr|	Expr LESS_EQUAL Expr |	Expr '>' Expr|	Expr GREATER_EQUAL Expr|	'(' Expr ')'|	'-' Expr  %prec '*'|	'!' Expr|	READ_INTEGER '(' ')'|	READ_LINE '(' ')'|	NULL|	LITERAL |	THIS|	INSTANCEOF '(' Expr ',' IDENTIFIER ')'|	'(' CLASS IDENTIFIER ')' Expr|	NEW IDENTIFIER '(' ')' |	NEW Type '[' Expr ']'                	
+Actuals         :	ExprList|	/* empty */
+ExprList        :	ExprList ',' Expr |	Expr 
+WhileStmt       :   WHILE '(' Expr ')' Stmt
+ForStmt         :   FOR '(' SimpleStmt ';' Expr ';'	SimpleStmt ')' Stmt
+BreakStmt       :	BREAK
+IfStmt          :	IF '(' Expr ')' Stmt ElseClause
+ElseClause      :	ELSE Stmt|	/* empty */	 					
+ReturnStmt      :	RETURN Expr|	RETURN
+PrintStmt       :	PRINT '(' ExprList ')'
+
+
+
+
+
+
+					

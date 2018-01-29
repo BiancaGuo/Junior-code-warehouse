@@ -1,0 +1,41 @@
+﻿1、每个新闻计算hash：表->编号->hah值
+2、根据hash求每个新闻和其他新闻的相似度（循环），如果相似度>0.9,把后一个新闻的链接放入前一个新闻的链接中，后一个新闻的链接置空
+
+
+[表名]
+
+	id：相似度
+
+
+create table SpiderFor36ker(
+
+		  	id INT NOT NULL AUTO_INCREMENT,
+			abstraction VARCHAR(5000),
+			news_url VARCHAR(1000),
+		  	PRIMARY KEY ( id )
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+
+
+INSERT INTO SpiderFor36ker VALUES ("1","www.36kr.com","美国等地用户反映三星 Note 8 耗尽电量后无法充电","据36ker报道最近许多美国的用户称他们的 Galaxy Note 8 已经不能充电，电池耗尽后不能够开机.目前
+三星好像正在用新机器来代替，但是三星对待问题的沉默和随意态度让用户们很是担忧 .雪
+上加霜的是，三星打算用翻新的部件来替换那些有问题的手机，而且 Galaxy Note 8 还没有保
+修。","http://36kr.com/p/5110463.html","2017-12-29","");
+
+
+INSERT INTO SpiderForCnbeta VALUES ("1","www.cnbeta.com","电池又出问题 三星 Note 8 电量耗尽后无法充电","最近许多美国的用户称他们的 Galaxy Note 8 已经不能充电，电池耗尽后不能够开机.目前三星好像正在用新机器来代替，但是三星对待问题的沉默和随意态度让用户们很是担忧.雪上加霜的是，三星打算用翻新的部件来替换那些有问题的手机，而且 Galaxy Note 8 还没有保
+修。","http://www.cnbeta.com/articles/tech/684242.htm","2017-12-29","");
+
+
+
+source,title,news_url,
+
+		create table SpiderFor36ker(
+		  	id INT NOT NULL AUTO_INCREMENT,
+			source VARCHAR(1000),
+			title VARCHAR(2000),
+			abstraction VARCHAR(2000),
+			news_url VARCHAR(1000),
+			publish_time VARCHAR(500),
+			topic VARCHAR(500),
+		  	PRIMARY KEY ( id )
+		)ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
