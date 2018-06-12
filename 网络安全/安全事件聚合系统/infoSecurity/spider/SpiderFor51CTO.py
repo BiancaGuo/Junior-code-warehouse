@@ -1,4 +1,4 @@
-1#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 # Created on 2017-12-04 11:18:57
 # Project: spiderForcnbeta
