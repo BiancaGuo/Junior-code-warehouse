@@ -1,0 +1,19 @@
+---
+- name: install dns
+  apt: name=bind9 state=present update_cache=yes
+
+- name: dns backup
+  template: backup=yes src=../templates/named.conf.local dest=/etc/bind/named.conf.local
+  notify: 
+  - dns restart
+
+- name: mkdir /etc/bind/zones
+  file:
+          path: /etc/bind/zones
+          state: directory
+          mode: 0755
+                  
+- name: edit db.cuc.edu.cn
+  template: src=../templates/db.cuc.edu.cn dest=/etc/bind/zones/db.cuc.edu.cn backup=yes
+  notify: 
+  - dns restart          

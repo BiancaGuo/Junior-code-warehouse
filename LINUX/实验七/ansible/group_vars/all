@@ -1,0 +1,43 @@
+# FTP:proftpd
+
+# white list
+PRO_WHITE_IP: 192.168.227.1
+# virtual user
+PRO_VIRTUAL_USER: user_ftp
+PRO_VIRTUAL_PASS: pass
+PRO_DIR: "/srv/ftp"
+PRO_UID: "1024"
+PRO_GID: "1024"
+PRO_VIR_DIR: "/home/{{PRO_VIRTUAL_USER}}"
+PRO_LIMIT: "700"
+PRO_FTPASSWD_DIR: "/usr/local/etc/proftpd"
+PRO_PASSWD_DIR: "{{PRO_FTPASSWD_DIR}}/passwd"
+PRO_GROUP_DIR: "{{PRO_FTPASSWD_DIR}}/group"
+PRO_GROUP_NAME: "virtualusers"
+
+
+
+# samba
+# samba user
+#SAMBA_USERNAME:"smbuser"
+#SAMBA_PASSWORD:"smbpass"
+#SAMBA_GROUP:"smbgroup"
+# directories
+#SAMBA_GUEST_DIR:"/home/samba/guest"
+#SAMBA_DEMO_DIR:"/home/samba/demo"
+#SAMBA_GUEST_LIMIT:"2775"
+#SAMBA_DEMO_LIMIT:"2770"
+
+# interfaces
+HOST_ONLY_INTER: "enp0s3"
+NAT_INTER: "enp0s9"
+INTERNAL_INTER: "enp0s8"
+INTERNAL_IP: "10.0.11.1"
+INTERNAL_GATEWAY: "10.0.11.254"
+INTERNAL_NETMASK: "255.255.255.0"
+
+# DHCP
+# subnet address
+SUBNET_SUB: "10.0.11.0"
+SUBNET_BOTTOM: "10.0.11.100"
+SUBNET_TOP: "10.0.11.200"

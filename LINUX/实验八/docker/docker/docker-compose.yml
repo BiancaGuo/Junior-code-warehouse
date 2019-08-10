@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+
+        proftpd:
+                build: ./proftpd
+                image: proftpd_install:1.0
+                restart: always
+                container_name: proftpd
+                ports:
+                - "21"
+                - "20"
+                       
+        nfs:
+                build: ./nfs
+                image: nfs_install:1.0
+                restart: always
+                container_name: nfs-server
+                ports:
+                - "111"
+                - "2049"
+                privileged: true
+                command: start-nfs-server.sh
+    
+        smbclient:
+                build: ./samba-client
+                image: smbclient_install:1.0
+                restart: always
+                container_name: smb-client
+    
+    
+        dhcp:
+                build: ./dhcp
+                image: dhcp_install:1.0
+                restart: always
+                container_name: dhcpd-server
+                ports:
+                - "67"
+               
+    
+        dns:
+                build: ./dns
+                image: dns_install:1.0
+                restart: always
+                container_name: dns
+                dns: 172.17.0.2
+                ports:
+                - "53"
+                

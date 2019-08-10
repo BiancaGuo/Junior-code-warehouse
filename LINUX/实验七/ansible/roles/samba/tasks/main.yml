@@ -1,0 +1,4 @@
+---
+- name: install smbclient
+  apt: name=smbclient state=present update_cache=yes
+  

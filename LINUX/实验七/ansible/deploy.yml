@@ -1,0 +1,11 @@
+---
+- hosts: web
+  become: true
+  remote_user: root
+  roles:
+          # - proftpd
+  - nfs
+  - samba
+  - dhcp
+  - dns
+  - proftpd

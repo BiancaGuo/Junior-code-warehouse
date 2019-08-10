@@ -1,0 +1,317 @@
+--2794fd5f-A--
+[17/Jul/2018:05:29:39 +0000] W01@w6wSAAMAAAPw38cAAAAC 192.168.227.5 48238 172.18.0.3 80
+--2794fd5f-B--
+POST //tbl_find_replace.php HTTP/1.1
+Host: 192.168.227.5:8088
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.18.4
+Cookie: phpMyAdmin=f3388a0405c69c94418f09a76cac67ab4f393877; pmaPass-1=McAisM9e1KNVtl2MB9r0TQ%3D%3D; pma_iv-1=yr%2BmJFrVbqxRgBNwsSLNPQ%3D%3D; pmaUser-1=gffOZ%2F7mTSwqX0UPsDaX8g%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci; phpMyAdmin=f3388a0405c69c94418f09a76cac67ab4f393877; pmaPass-1=McAisM9e1KNVtl2MB9r0TQ%3D%3D; pma_iv-1=yr%2BmJFrVbqxRgBNwsSLNPQ%3D%3D; pmaUser-1=gffOZ%2F7mTSwqX0UPsDaX8g%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci
+Content-Length: 170
+Content-Type: application/x-www-form-urlencoded
+
+--2794fd5f-C--
+columnIndex=0&token=a249501a559741c3f721e6d75aad07b5&submit=Go&ajax_request=true&goto=sql.php&table=prgpwn&replaceWith=system%28id%29%3B&db=test&find=0%2Fe%00&useRegex=on
+--2794fd5f-F--
+HTTP/1.1 500 Internal Server Error
+Content-Length: 613
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+--2794fd5f-E--
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator at
+ webmaster@localhost to inform them of the time this error occurred,
+ and the actions you performed just before this error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.4.10 (Debian) Server at 192.168.227.5 Port 8088</address>
+</body></html>
+--2794fd5f-H--
+Message: Access denied with code 500 (phase 2). Pattern match "/e\\0" at ARGS:find. [file "/usr/share/modsecurity-crs/activated_rules/TestRules.conf"] [line "2"] [id "0000001"] [msg "phpMyAdmin CVE-2016-5734"] [tag "WEB_ATTACK/RemoteCodeExecution"]
+Action: Intercepted (phase 2)
+Apache-Handler: application/x-httpd-php
+Stopwatch: 1531805379426123 606 (- - -)
+Stopwatch2: 1531805379426123 606; combined=146, p1=133, p2=11, p3=0, p4=0, p5=2, sr=63, sw=0, l=0, gc=0
+Response-Body-Transformed: Dechunked
+Producer: ModSecurity for Apache/2.8.0 (http://www.modsecurity.org/); OWASP_CRS/2.2.9.
+Server: Apache/2.4.10 (Debian)
+Engine-Mode: "ENABLED"
+
+--2794fd5f-Z--
+
+--144bb222-A--
+[17/Jul/2018:07:00:49 +0000] W02UIawSAAMAAAQg9e4AAAAB 192.168.227.1 26714 172.18.0.3 80
+--144bb222-B--
+POST //tbl_find_replace.php HTTP/1.1
+Host: 192.168.227.5:8088
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.13.0
+Cookie: phpMyAdmin=6ae639702428138aeea4249fafc3d5bbcb69f137; pmaPass-1=TFeoJHQBCyQ4fw9TIa2FDw%3D%3D; pma_iv-1=oqM6BS1E5qhee7undxcHsw%3D%3D; pmaUser-1=hDy3klIicDMSrN6nt6%2F5RA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci; phpMyAdmin=6ae639702428138aeea4249fafc3d5bbcb69f137; pmaPass-1=TFeoJHQBCyQ4fw9TIa2FDw%3D%3D; pma_iv-1=oqM6BS1E5qhee7undxcHsw%3D%3D; pmaUser-1=hDy3klIicDMSrN6nt6%2F5RA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci
+Content-Length: 176
+Content-Type: application/x-www-form-urlencoded
+
+--144bb222-C--
+columnIndex=0&token=a48283a0264b2a54f3ce3738fd5989ee&submit=Go&ajax_request=true&goto=sql.php&table=prgpwn&replaceWith=%27system%28id%29%3B%27&db=test&find=0%2Fe%00&useRegex=on
+--144bb222-F--
+HTTP/1.1 500 Internal Server Error
+Content-Length: 613
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+--144bb222-E--
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator at
+ webmaster@localhost to inform them of the time this error occurred,
+ and the actions you performed just before this error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.4.10 (Debian) Server at 192.168.227.5 Port 8088</address>
+</body></html>
+
+--144bb222-H--
+Message: Access denied with code 500 (phase 2). Pattern match "/e\\0" at ARGS:find. [file "/usr/share/modsecurity-crs/activated_rules/TestRules.conf"] [line "2"] [id "0000001"] [msg "phpMyAdmin CVE-2016-5734"] [tag "WEB_ATTACK/RemoteCodeExecution"]
+Action: Intercepted (phase 2)
+Apache-Handler: application/x-httpd-php
+Stopwatch: 1531810849556996 1209 (- - -)
+Stopwatch2: 1531810849556996 1209; combined=218, p1=193, p2=20, p3=0, p4=0, p5=4, sr=82, sw=1, l=0, gc=0
+Response-Body-Transformed: Dechunked
+Producer: ModSecurity for Apache/2.8.0 (http://www.modsecurity.org/); OWASP_CRS/2.2.9.
+Server: Apache/2.4.10 (Debian)
+Engine-Mode: "ENABLED"
+
+--144bb222-Z--
+
+--2794fd5f-A--
+[17/Jul/2018:05:29:39 +0000] W01@w6wSAAMAAAPw38cAAAAC 192.168.227.5 48238 172.18.0.3 80
+--2794fd5f-B--
+POST //tbl_find_replace.php HTTP/1.1
+Host: 192.168.227.5:8088
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.18.4
+Cookie: phpMyAdmin=f3388a0405c69c94418f09a76cac67ab4f393877; pmaPass-1=McAisM9e1KNVtl2MB9r0TQ%3D%3D; pma_iv-1=yr%2BmJFrVbqxRgBNwsSLNPQ%3D%3D; pmaUser-1=gffOZ%2F7mTSwqX0UPsDaX8g%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci; phpMyAdmin=f3388a0405c69c94418f09a76cac67ab4f393877; pmaPass-1=McAisM9e1KNVtl2MB9r0TQ%3D%3D; pma_iv-1=yr%2BmJFrVbqxRgBNwsSLNPQ%3D%3D; pmaUser-1=gffOZ%2F7mTSwqX0UPsDaX8g%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci
+Content-Length: 170
+Content-Type: application/x-www-form-urlencoded
+
+--2794fd5f-C--
+columnIndex=0&token=a249501a559741c3f721e6d75aad07b5&submit=Go&ajax_request=true&goto=sql.php&table=prgpwn&replaceWith=system%28id%29%3B&db=test&find=0%2Fe%00&useRegex=on
+--2794fd5f-F--
+HTTP/1.1 500 Internal Server Error
+Content-Length: 613
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+--2794fd5f-E--
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator at
+ webmaster@localhost to inform them of the time this error occurred,
+ and the actions you performed just before this error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.4.10 (Debian) Server at 192.168.227.5 Port 8088</address>
+</body></html>
+--2794fd5f-H--
+Message: Access denied with code 500 (phase 2). Pattern match "/e\\0" at ARGS:find. [file "/usr/share/modsecurity-crs/activated_rules/TestRules.conf"] [line "2"] [id "0000001"] [msg "phpMyAdmin CVE-2016-5734"] [tag "WEB_ATTACK/RemoteCodeExecution"]
+Action: Intercepted (phase 2)
+Apache-Handler: application/x-httpd-php
+Stopwatch: 1531805379426123 606 (- - -)
+Stopwatch2: 1531805379426123 606; combined=146, p1=133, p2=11, p3=0, p4=0, p5=2, sr=63, sw=0, l=0, gc=0
+Response-Body-Transformed: Dechunked
+Producer: ModSecurity for Apache/2.8.0 (http://www.modsecurity.org/); OWASP_CRS/2.2.9.
+Server: Apache/2.4.10 (Debian)
+Engine-Mode: "ENABLED"
+
+--2794fd5f-Z--
+
+--144bb222-A--
+[17/Jul/2018:07:00:49 +0000] W02UIawSAAMAAAQg9e4AAAAB 192.168.227.7 26714 172.18.0.3 80
+--144bb222-B--
+POST //tbl_find_replace.php HTTP/1.1
+Host: 192.168.227.5:8088
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.13.0
+Cookie: phpMyAdmin=6ae639702428138aeea4249fafc3d5bbcb69f137; pmaPass-1=TFeoJHQBCyQ4fw9TIa2FDw%3D%3D; pma_iv-1=oqM6BS1E5qhee7undxcHsw%3D%3D; pmaUser-1=hDy3klIicDMSrN6nt6%2F5RA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci; phpMyAdmin=6ae639702428138aeea4249fafc3d5bbcb69f137; pmaPass-1=TFeoJHQBCyQ4fw9TIa2FDw%3D%3D; pma_iv-1=oqM6BS1E5qhee7undxcHsw%3D%3D; pmaUser-1=hDy3klIicDMSrN6nt6%2F5RA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci
+Content-Length: 176
+Content-Type: application/x-www-form-urlencoded
+
+--144bb222-C--
+columnIndex=0&token=a48283a0264b2a54f3ce3738fd5989ee&submit=Go&ajax_request=true&goto=sql.php&table=prgpwn&replaceWith=%27system%28id%29%3B%27&db=test&find=0%2Fe%00&useRegex=on
+--144bb222-F--
+HTTP/1.1 500 Internal Server Error
+Content-Length: 613
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+--144bb222-E--
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator at
+ webmaster@localhost to inform them of the time this error occurred,
+ and the actions you performed just before this error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.4.10 (Debian) Server at 192.168.227.5 Port 8088</address>
+</body></html>
+
+--144bb222-H--
+Message: Access denied with code 500 (phase 2). Pattern match "/e\\0" at ARGS:find. [file "/usr/share/modsecurity-crs/activated_rules/TestRules.conf"] [line "2"] [id "0000001"] [msg "phpMyAdmin CVE-2016-5735"] [tag "WEB_ATTACK/RemoteCodeExecution"]
+Action: Intercepted (phase 2)
+Apache-Handler: application/x-httpd-php
+Stopwatch: 1531810849556996 1209 (- - -)
+Stopwatch2: 1531810849556996 1209; combined=218, p1=193, p2=20, p3=0, p4=0, p5=4, sr=82, sw=1, l=0, gc=0
+Response-Body-Transformed: Dechunked
+Producer: ModSecurity for Apache/2.8.0 (http://www.modsecurity.org/); OWASP_CRS/2.2.9.
+Server: Apache/2.4.10 (Debian)
+Engine-Mode: "ENABLED"
+
+--144bb222-Z--
+
+--8f62db44-A--
+[17/Jul/2018:07:24:44 +0000] W02ZvKwSAAMAAAQfwkEAAAAA 192.168.227.6 38602 172.18.0.3 80
+--8f62db44-B--
+POST //tbl_find_replace.php HTTP/1.1
+Host: 192.168.227.5:8088
+Content-Length: 170
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.9.1
+Connection: keep-alive
+Cookie: phpMyAdmin=86f3d11f702c4abd57f84b5bcbb5444a6e964e00; pmaPass-1=in10pl%2BHMeWUr4f%2FcTFTOA%3D%3D; pma_iv-1=4X1GmLYXxGXIcitwDJ7oww%3D%3D; pmaUser-1=4qDjaKXetmldN5mHVf4xoA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci; phpMyAdmin=86f3d11f702c4abd57f84b5bcbb5444a6e964e00; pmaPass-1=in10pl%2BHMeWUr4f%2FcTFTOA%3D%3D; pma_iv-1=4X1GmLYXxGXIcitwDJ7oww%3D%3D; pmaUser-1=4qDjaKXetmldN5mHVf4xoA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci
+Content-Type: application/x-www-form-urlencoded
+
+--8f62db44-C--
+columnIndex=0&token=cf6582f3bb31db69de1a67e63180f7ce&submit=Go&ajax_request=true&goto=sql.php&table=prgpwn&replaceWith=system%28id%29%3B&db=test&find=0%2Fe%00&useRegex=on
+--8f62db44-F--
+HTTP/1.1 500 Internal Server Error
+Content-Length: 613
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+--8f62db44-E--
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator at
+ webmaster@localhost to inform them of the time this error occurred,
+ and the actions you performed just before this error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.4.10 (Debian) Server at 192.168.227.5 Port 8088</address>
+</body></html>
+
+--8f62db44-H--
+Message: Access denied with code 500 (phase 2). Pattern match "/e\\0" at ARGS:find. [file "/usr/share/modsecurity-crs/activated_rules/TestRules.conf"] [line "2"] [id "0000001"] [msg "phpMyAdmin CVE-2016-5734"] [tag "WEB_ATTACK/RemoteCodeExecution"]
+Action: Intercepted (phase 2)
+Apache-Handler: application/x-httpd-php
+Stopwatch: 1531812284748756 818 (- - -)
+Stopwatch2: 1531812284748756 818; combined=151, p1=134, p2=13, p3=0, p4=0, p5=3, sr=59, sw=1, l=0, gc=0
+Response-Body-Transformed: Dechunked
+Producer: ModSecurity for Apache/2.8.0 (http://www.modsecurity.org/); OWASP_CRS/2.2.9.
+Server: Apache/2.4.10 (Debian)
+Engine-Mode: "ENABLED"
+
+--8f62db44-Z--
+
+finish here
+
+--8f62db44-A--
+[17/Jul/2018:07:24:44 +0000] W02ZvKwSAAMAAAQfwkEAAAAA 192.168.227.8 38602 172.18.0.3 80
+--8f62db44-B--
+POST //tbl_find_replace.php HTTP/1.1
+Host: 192.168.227.5:8088
+Content-Length: 170
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.9.1
+Connection: keep-alive
+Cookie: phpMyAdmin=86f3d11f702c4abd57f84b5bcbb5444a6e964e00; pmaPass-1=in10pl%2BHMeWUr4f%2FcTFTOA%3D%3D; pma_iv-1=4X1GmLYXxGXIcitwDJ7oww%3D%3D; pmaUser-1=4qDjaKXetmldN5mHVf4xoA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci; phpMyAdmin=86f3d11f702c4abd57f84b5bcbb5444a6e964e00; pmaPass-1=in10pl%2BHMeWUr4f%2FcTFTOA%3D%3D; pma_iv-1=4X1GmLYXxGXIcitwDJ7oww%3D%3D; pmaUser-1=4qDjaKXetmldN5mHVf4xoA%3D%3D; pma_lang=en; pma_collation_connection=utf8mb4_unicode_ci
+Content-Type: application/x-www-form-urlencoded
+
+--8f62db44-C--
+columnIndex=0&token=cf6582f3bb31db69de1a67e63180f7ce&submit=Go&ajax_request=true&goto=sql.php&table=prgpwn&replaceWith=system%28id%29%3B&db=test&find=0%2Fe%00&useRegex=on
+--8f62db44-F--
+HTTP/1.1 500 Internal Server Error
+Content-Length: 613
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+--8f62db44-E--
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator at
+ webmaster@localhost to inform them of the time this error occurred,
+ and the actions you performed just before this error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.4.10 (Debian) Server at 192.168.227.5 Port 8088</address>
+</body></html>
+
+--8f62db44-H--
+Message: Access denied with code 500 (phase 2). Pattern match "/e\\0" at ARGS:find. [file "/usr/share/modsecurity-crs/activated_rules/TestRules.conf"] [line "2"] [id "0000001"] [msg "phpMyAdmin CVE-2016-5734"] [tag "WEB_ATTACK/RemoteCodeExecution"]
+Action: Intercepted (phase 2)
+Apache-Handler: application/x-httpd-php
+Stopwatch: 1531812284748756 818 (- - -)
+Stopwatch2: 1531812284748756 818; combined=151, p1=134, p2=13, p3=0, p4=0, p5=3, sr=59, sw=1, l=0, gc=0
+Response-Body-Transformed: Dechunked
+Producer: ModSecurity for Apache/2.8.0 (http://www.modsecurity.org/); OWASP_CRS/2.2.9.
+Server: Apache/2.4.10 (Debian)
+Engine-Mode: "ENABLED"
+
+--8f62db44-Z--
+
+
+
+
+
+finish here

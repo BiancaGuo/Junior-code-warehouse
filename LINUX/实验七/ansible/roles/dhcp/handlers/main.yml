@@ -1,0 +1,7 @@
+---
+- name: dhcp restart
+  service:  name=isc-dhcp-server state=restarted
+
+
+- name: network restart
+  service: name=networking state=restarted

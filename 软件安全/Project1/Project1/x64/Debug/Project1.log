@@ -1,0 +1,8 @@
+﻿  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler (x64) Version 14.00.24210.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: test.asm
+  main.cpp
+  Project1.vcxproj -> D:\大三冲刺，你是最棒哒~\大三下\软件安全\Project1\x64\Debug\Project1.exe
+  Project1.vcxproj -> D:\大三冲刺，你是最棒哒~\大三下\软件安全\Project1\x64\Debug\Project1.pdb (Partial PDB)

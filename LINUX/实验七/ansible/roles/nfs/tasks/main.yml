@@ -1,0 +1,18 @@
+---
+- name: install nfs-kernel-server 
+  apt: name=nfs-kernel-server state=present update_cache=yes
+
+- name: nfs backup
+  template: backup=yes src=../templates/exports dest=/etc/expots
+  notify: 
+  - nfs-kernel-server restart
+
+
+
+- name: mkdir /var/nfs/general
+  file:
+        path: /var/nfs/general
+        owner: nobody
+        group: nogroup
+        state: directory
+

@@ -1,0 +1,17 @@
+---
+- name: install dhcp
+  apt: name=isc-dhcp-server state=present update_cache=yes
+
+- name: isc-dhcp-server backup and edit
+  template: backup=yes src=../templates/isc-dhcp-server dest=/etc/default/isc-dhcp-server
+
+- name: dhcpd.conf backup and edit
+  template: backup=yes src=../templates/dhcpd.conf dest=/etc/dhcp/dhcpd.conf
+  notify: 
+  - dhcp restart
+
+
+- name: interfaces backup and edit
+  template: backup=yes src=../templates/interfaces dest=/etc/network/interfaces
+  notify:
+  - network restart

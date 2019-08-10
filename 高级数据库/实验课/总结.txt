@@ -1,0 +1,97 @@
+1、对文本文件形式的原始数据集进行预处理
+
+* 解压：unzip
+* 查看前五条记录：head -5 file_name
+* 删除字段名称：sed -i '1d' raw_user //1d表示删除第1行，同理，3d表示删除第3行，nd* 表示删除第n行
+* 增加id字段：awk -F "," '处理逻辑' $infile > $outfile
+
+2、把文本文件的数据集导入到数据仓库Hive中
+
+（1）上传到分布式文件系统HDFS中（Hadoop的核心组件）
+
+* 在HDFS的根目录下面创建一个新的目录bigdatacase，并在这个目录下创建一个子目录dataset：./bin/hdfs dfs -mkdir -p /bigdatacase/dataset
+* 文件上传：./bin/hdfs dfs -put /usr/local/bigdatacase/dataset/user_table.txt /bigdatacase/dataset
+
+（2）在Hive中创建一个外部表（基于Hadoop的数据仓库，使用HiveQL语言撰写的查询语句，最终都会被Hive自动解析成MapReduce任务由Hadoop去具体执行）
+
+* 创建数据库： create database dblab; use dblab;
+* 创建外部表： 
+ CREATE EXTERNAL TABLE dblab.bigdata_user(id INT,uid STRING,item_id STRING,behavior_type INT,item_category STRING,visit_date DATE,province STRING) COMMENT 'Welcome to xmu dblab!' 
+ROW FORMAT DELIMITED  FIELDS TERMINATED BY '\t' 
+STORED AS TEXTFILE 
+LOCATION '/bigdatacase/dataset';
+
+//关键字,是用来设置创建的表在加载数据的时候,支持的列分隔符
+//中文备注comment
+//每条数据之间由换行符分割
+（3）完成数据的导入。
+
+成功把HDFS中的“/bigdatacase/dataset”目录下的数据加载到了数据仓库Hive中
+
+3、对数据仓库Hive中的数据进行查询分析
+
+hive> use dblab; //使用dblab数据库
+hive> show tables; //显示数据库中所有表。
+hive> show create table bigdata_user; //查看bigdata_user表的各种属性；
+
+CREATE EXTERNAL TABLE `bigdata_user`(
+  `id` int, 
+  `uid` string, 
+  `item_id` string, 
+  `behavior_type` int, 
+  `item_category` string, 
+  `visit_date` date, 
+  `province` string)
+COMMENT 'Welcome to xmu dblab!'
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+WITH SERDEPROPERTIES ( 
+  'field.delim'='\t', 
+  'serialization.format'='\t') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://localhost:9000/bigdatacase/dataset'
+TBLPROPERTIES (
+  'numFiles'='1', 
+  'totalSize'='15590786', 
+  'transient_lastDdlTime'='1480217306')
+Time taken: 0.715 seconds, Fetched: 24 row(s)
+
+查看表的简单结构：desc bigdata_user;
+
+查询：select behavior_type from bigdata_user limit 10;
+
+别名：select e.bh, e.it  from (select behavior_type as bh, item_category as it from bigdata_user) as e  limit 20;
+
+查询数据行数：select count(*) from bigdata_user;
+查询不重复行数：select count(distinct uid) from bigdata_user;
+
+不重复数据：select count(*) from (select uid,item_id,behavior_type,item_category,visit_date,province from bigdata_user group by uid,item_id,behavior_type,item_category,visit_date,province having count(*)=1)a;
+
+条件查询分析：
+
+select count(*) from bigdata_user where behavior_type='1' and visit_date<'2014-12-13' and visit_date>'2014-12-10';
+
+select count(distinct uid), day(visit_date) from bigdata_user where behavior_type='4' group by day(visit_date);
+
+select count(*) from bigdata_user where province='江西' and visit_date='2014-12-12' and behavior_type='4';
+
+用户实时查询分析：
+create table scan(province STRING,scan INT) COMMENT 'This is the search of bigdataday' ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;//创建新的数据表进行存储
+
+insert overwrite table scan select province,count(behavior_type) from bigdata_user where behavior_type='1' group by province;//导入数据
+
+//group by 对检索结果的保留行进行单纯分组
+
+Hive中表与外部表的区别：
+1、在导入数据到外部表，数据并没有移动到自己的数据仓库目录下，也就是说外部表中的数据并不是由它自己来管理的！而表则不一样；
+2、在删除表的时候，Hive将会把属于表的元数据和数据全部删掉；而删除外部表的时候，Hive仅仅删除外部表的元数据，数据是不会删除的！
+
+
+
+Hadoop：
+ Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS。HDFS有高容错性的特点，并且设计用来部署在低廉的（low-cost）硬件上；而且它提供高吞吐量（high throughput）来访问应用程序的数据，适合那些有着超大数据集（large data set）的应用程序。HDFS放宽了（relax）POSIX的要求，可以以流的形式访问（streaming access）文件系统中的数据。
+Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数据提供了存储，则MapReduce为海量的数据提供了计算。

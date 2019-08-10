@@ -1,0 +1,42 @@
+---
+- name: install proftpd
+  apt: name=proftpd state=present update_cache=yes
+
+- name: proftpd backup
+  template: backup=yes src=../templates/proftpd.conf dest=/etc/proftpd/proftpd.conf
+  notify: 
+  - proftpd restart
+
+
+- name: mkdir /srv/ftp
+  file:
+          path: "{{ PRO_DIR  }}"
+          owner: ftp
+          group: nogroup
+          state: directory
+
+- name: change usermod
+  command: usermod -d {{ PRO_DIR  }} ftp
+
+- name: mkdir /home/ftpuser
+  file:
+        path: "{{ PRO_VIR_DIR  }}"
+        owner: "{{ PRO_UID }}"
+        group: "{{ PRO_GID }}"
+        mode: "{{ PRO_LIMIT }}"
+        state: directory
+
+- name: mkdir /usr/local/etc/proftpd
+  file: 
+        path: "{{ PRO_FTPASSWD_DIR }}"
+        state: directory
+
+- name: ftpasswd user
+  shell: echo {{ PRO_VIRTUAL_PASS  }} | ftpasswd --passwd --file={{ PRO_PASSWD_DIR }} --name={{ PRO_VIRTUAL_USER }} --uid={{ PRO_UID }} --home={{ PRO_VIR_DIR }} --shell=/bin/false --stdin
+
+- name: ftpasswd group
+  shell: ftpasswd --file={{ PRO_GROUP_DIR }} --group --name={{ PRO_GROUP_NAME }} --gid={{ PRO_GID }}
+
+- name: user add to group
+  shell: ftpasswd --group --name={{ PRO_GROUP_NAME }} --gid={{ PRO_GID }} --member={{ PRO_VIRTUAL_USER }} --file={{ PRO_GROUP_DIR }}
+

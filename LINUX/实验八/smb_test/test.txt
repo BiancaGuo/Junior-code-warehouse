@@ -1,0 +1,1 @@
+smdclient测试文件夹
